@@ -4,33 +4,20 @@ class Program
 {
     static void Main()
     {
-        Console.Write("Enter numerical grade (0–100): ");
+        Console.Write("Enter your age: ");
         string input = Console.ReadLine();
 
-        if (int.TryParse(input, out int grade) && grade >= 0 && grade <= 100)
+        if (int.TryParse(input, out int age) && age >= 0)
         {
-            string letter;
-
-            if (grade >= 90)
-                letter = "A";
-            else if (grade >= 80)
-                letter = "B";
-            else if (grade >= 70)
-                letter = "C";
-            else if (grade >= 60)
-                letter = "D";
-            else
-                letter = "F";
-
-            Console.WriteLine($"Letter Grade: {letter}");
+            double price = (age <= 12 || age >= 65) ? 7.0 : 10.0;
+            Console.WriteLine($"Ticket Price: GHC{price}");
         }
         else
         {
-            Console.WriteLine("Invalid input. Please enter an integer between 0 and 100.");
+            Console.WriteLine("Invalid input. Please enter a valid non‑negative integer age.");
         }
 
         Console.WriteLine("Press any key to exit...");
         Console.ReadKey();
     }
 }
-
